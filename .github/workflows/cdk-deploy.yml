@@ -3,7 +3,7 @@ name: CDK Deploy
 on:
   workflow_dispatch:
   push:
-    branches: ["main"]
+    branches: ["master"]
 
 jobs:
   aws_cdk:
