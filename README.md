@@ -12,8 +12,52 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 * `npx cdk diff`    compare deployed stack with current state
 * `npx cdk synth`   emits the synthesized CloudFormation template
 
-## Deploy the stack on AWS
+## Routes
 
+### /transcode
+```js
+    const res = await fetch('https://n2klthh2tl.execute-api.us-east-1.amazonaws.com/prod/transcode', {
+        method: 'POST',
+        body: JSON.stringify({
+            url: "https://pub-951fa3482dca41f6bf9fa25a7953175d.r2.dev/ytaudio.webm",
+            requestId: "XXXXXXXXXXXXXXXX"
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    const data = await res.json()
+    console.log(data)
+    // {
+    //     success: true,
+    //     requestId: 'XXXXXXXXXXXXXXXX',
+    //     url: 'https://audioprocessingstack-s3100bedfb-ihhtoldoybzj.s3.us-east-1.amazonaws.com/ffmpeg/temp/3f4775f7dfdada3f/f4775f7dfdada3f8.ogg'
+    // }
+```
+
+### /concat
+```js
+    const res = await fetch('https://n2klthh2tl.execute-api.us-east-1.amazonaws.com/prod/concat', {
+        method: 'POST',
+        body: JSON.stringify({
+            urls: ["https://pub-951fa3482dca41f6bf9fa25a7953175d.r2.dev/ytaudio.webm", "https://pub-951fa3482dca41f6bf9fa25a7953175d.r2.dev/ytaudio.webm"],
+            requestId: "XXXXXXXXXXXXXXXX"
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    const data = await res.json()
+    console.log(data)
+    // {
+    //     success: true,
+    //     requestId: 'XXXXXXXXXXXXXXXX',
+    //     url: 'https://audioprocessingstack-s3100bedfb-ihhtoldoybzj.s3.us-east-1.amazonaws.com/ffmpeg/temp/3f4775f7dfdada3f/f4775f7dfdada3f8.ogg'
+    // }
+```
+
+
+## Deploy the stack on AWS
 
 ### Configure IAM
 
