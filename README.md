@@ -20,7 +20,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
         method: 'POST',
         body: JSON.stringify({
             url: "https://pub-951fa3482dca41f6bf9fa25a7953175d.r2.dev/ytaudio.webm",
-            requestId: "XXXXXXXXXXXXXXXX"
+            requestId: "XXXXXXXXXXXXXXXX" //optional
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
         method: 'POST',
         body: JSON.stringify({
             urls: ["https://pub-951fa3482dca41f6bf9fa25a7953175d.r2.dev/ytaudio.webm", "https://pub-951fa3482dca41f6bf9fa25a7953175d.r2.dev/ytaudio.webm"],
-            requestId: "XXXXXXXXXXXXXXXX"
+            requestId: "XXXXXXXXXXXXXXXX" //optional
         }),
         headers: {
             'Content-Type': 'application/json'
